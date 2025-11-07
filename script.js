@@ -1,6 +1,6 @@
 // script.js
 // 🚨 第二步：PLACEHOLDER_YOUR_WORKER_URL_HERE 是占位符，请在部署完 Worker 后，用 Worker 的真实 URL 替换它！
-const API_ENDPOINT = 'https://volcano-bot-proxy.1527360074.workers.dev/'; 
+const API_ENDPOINT = 'https://cmu.1527360074.workers.dev/'; 
 
 async function sendMessage() {
     const userInput = document.getElementById('user-input');
@@ -68,3 +68,4 @@ function addMessage(text, className) {
     return messageDiv;
 
 }
+
