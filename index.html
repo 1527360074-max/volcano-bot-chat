@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>中国医科大学 智能问答Bot</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/86/China_Medical_University_Logo.png" alt="中国医科大学" class="logo">
     <h1>中国医科大学 智能问答助手</h1>
+  </header>
+
+  <section class="intro">
+    <p>
+      欢迎使用 <strong>中国医科大学智能问答Bot</strong>。
+      本系统基于火山引擎智能对话技术，为您提供有关学校、
+      专业、招生、科研等方面的即时问答服务。
+    </p>
+  </section>
+
+  <section class="chat-container">
     <div id="chat-box"></div>
     <div class="input-area">
       <input type="text" id="user-input" placeholder="请输入你的问题..." />
       <button id="send-btn">发送</button>
     </div>
-  </div>
+  </section>
+
+  <footer>
+    <p>© 中国医科大学 | Powered by 火山引擎 Bot</p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
