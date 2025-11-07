@@ -97,3 +97,4 @@ function handleOptions(request) {
     });
     return new Response(null, { status: 204, headers: respHeaders }); 
 }
+
