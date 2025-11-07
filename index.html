@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的火山引擎 AI 对话机器人</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="chat-container">
+        <div id="messages">
+             <div class="message bot-message">你好！我是你的专属 AI 助理。</div>
+        </div>
+        
+        <div id="input-area">
+            <input type="text" id="user-input" placeholder="输入你的问题..." onkeydown="if(event.key === 'Enter') sendMessage()">
+            <button onclick="sendMessage()">发送</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

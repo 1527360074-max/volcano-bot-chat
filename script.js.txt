@@ -1,0 +1,69 @@
+// script.js
+// 🚨 第二步：PLACEHOLDER_YOUR_WORKER_URL_HERE 是占位符，请在部署完 Worker 后，用 Worker 的真实 URL 替换它！
+const API_ENDPOINT = 'PLACEHOLDER_YOUR_WORKER_URL_HERE'; 
+
+async function sendMessage() {
+    const userInput = document.getElementById('user-input');
+    const messageText = userInput.value.trim();
+    if (!messageText) return; // 如果输入为空则不发送
+
+    // 1. 清空输入框并禁用
+    userInput.value = '';
+    userInput.disabled = true; // 发送期间禁用输入
+
+    // 2. 显示用户消息
+    addMessage(messageText, 'user-message');
+
+    // 3. 显示加载提示
+    const loadingMessage = addMessage('机器人思考中...', 'bot-message loading');
+
+    try {
+        // 4. 调用 Worker 代理
+        const response = await fetch(API_ENDPOINT, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                // 只发送用户查询给代理
+                query: messageText, 
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`API 代理失败: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        
+        // 5. 解析并显示 Bot 回复 (这里假设 Worker 返回的 JSON 包含 reply_text 字段)
+        const botReply = data.reply_text || "抱歉，机器人没有给出明确回复。";
+        
+        // 6. 更新加载消息为正式回复
+        loadingMessage.innerHTML = botReply;
+        loadingMessage.classList.remove('loading');
+
+    } catch (error) {
+        console.error('发送消息出错:', error);
+        loadingMessage.innerHTML = `出错了: 无法连接到服务 (${error.message})`;
+        loadingMessage.classList.add('error');
+    } finally {
+        // 7. 无论成功失败，都重新启用输入框
+        userInput.disabled = false;
+        userInput.focus();
+    }
+}
+
+// 辅助函数：向聊天界面添加消息
+function addMessage(text, className) {
+    const messagesDiv = document.getElementById('messages');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${className}`;
+    messageDiv.innerHTML = text; 
+    messagesDiv.appendChild(messageDiv);
+    
+    // 自动滚动到底部
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    
+    return messageDiv;
+}
