@@ -1,43 +1,58 @@
 body {
   font-family: "Microsoft YaHei", sans-serif;
-  background-color: #f4f6f9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  background-color: #f8fafc;
   margin: 0;
-}
-
-.container {
-  background: #fff;
-  padding: 20px;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 600px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-h1 {
-  color: #004d99;
+header {
   text-align: center;
+  background-color: #004d99;
+  color: white;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.intro {
+  max-width: 700px;
+  text-align: center;
+  margin: 20px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.chat-container {
+  background: #fff;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
 #chat-box {
-  flex: 1;
-  overflow-y: auto;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 10px;
-  margin: 10px 0;
   height: 400px;
+  overflow-y: auto;
+  margin-bottom: 10px;
 }
 
 .message {
   margin: 8px 0;
   padding: 10px;
   border-radius: 10px;
+  max-width: 85%;
   line-height: 1.5;
 }
 
@@ -48,6 +63,7 @@ h1 {
 
 .bot {
   background: #f1f8e9;
+  align-self: flex-start;
 }
 
 .input-area {
@@ -71,7 +87,10 @@ h1 {
   cursor: pointer;
 }
 
-button:hover {
-    background-color: #218838;
+footer {
+  margin: 20px;
+  color: #777;
+  font-size: 14px;
 }
+
 
