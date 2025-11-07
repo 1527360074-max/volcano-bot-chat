@@ -1,24 +1,38 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>火山机器人聊天</title>
-    <link rel="stylesheet" href="style.css"> 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>中国医科大学 智能问答Bot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #004d99;
+      margin-bottom: 20px;
+    }
+    iframe {
+      border: none;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 600px;
+      height: 700px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-box" id="chatBox">
-            <div class="message bot">你好! 我是你的专属 AI 助理。</div>
-        </div>
+  <h1>中国医科大学 智能问答助手</h1>
 
-        <div class="input-area">
-            <input type="text" id="userInput" placeholder="输入你的问题...">
-            
-            <button id="sendButton">发送</button>
-        </div>
-    </div>
+  <!-- 嵌入火山引擎 bot iframe -->
+  <iframe src="https://ark.cn-beijing.volces.com/api/v3/bots/chat/completions"></iframe>
 
-    <script src="script.js"></script>
+  <p style="margin-top:20px;color:#888;">由火山引擎Bot驱动</p>
 </body>
 </html>
